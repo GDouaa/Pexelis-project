@@ -1,11 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NeXora — Landing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Closest match to the screenshot's friendly rounded + heavy headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css\home.css" />
 </head>
+
 <body>
-    
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="page">
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="#">
+          <!-- Replace with your SVG logo mark -->
+          <img class="brand__mark" src="images\logo.svg" alt="NeXora logo" />
+          <!-- Replace with your SVG wordmark -->
+          <img class="brand__word" src="images\NeXora.svg" alt="NeXora" />
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav__link nav__link--feedback" href="#feedback">FEEDBACK</a>
+          <a class="nav__link nav__link--why" href="#why">why us</a>
+          <a class="btn btn--pill btn--solid btn--login" href="#login">login</a>
+          <a class="btn btn--pill btn--solid" href="#signup">SIGN UP</a>
+
+        </nav>
+
+        <button class="navToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section class="hero" aria-label="Hero">
+        <div class="hero__inner">
+          <div class="hero__copy reveal">
+            <h1 class="hero__title">
+              STEP INTO THE<br>
+              NEXT ERA OF YOUR<br>
+              HEALTH
+            </h1>
+            <p class="hero__sub">
+              nexora helps young adults build habits that make<br>
+              life healthier, happier, and easier
+            </p>
+
+            <div class="hero__cta">
+              <a class="btn btn--cta" href="#why">Start your journey</a>
+            </div>
+          </div>
+
+          <div class="hero__art reveal" style="--d: 140ms">
+            <!-- Replace with your provided hero illustration SVG -->
+            <img src="images\herosection illustration.svg" alt="App illustration showing a habit journey" />
+          </div>
+        </div>
+
+        <!-- Decorative corner circles like screenshot -->
+        
+        <div class="corner corner--bl" aria-hidden="true"></div>
+        <div class="corner corner--br" aria-hidden="true"></div>
+      </section>
+
+      <!-- WHY NEXORA -->
+      <section id="why" class="why" aria-label="Why Nexora">
+        <div class="why__heading reveal">
+          <div class="why__rule why__rule--left" aria-hidden="true"></div>
+          <div class="why__titles">
+            <h2>WHY NEXORA ?</h2>
+            <p>BECAUSE YOUR HEALTH DESERVES BETTER</p>
+          </div>
+          <div class="why__rule why__rule--right" aria-hidden="true"></div>
+        </div>
+
+        <div class="why__grid">
+          <!-- Left pill -->
+          <article class="pill pill--left reveal" style="--d: 80ms">
+          <div class="pill__icon" aria-hidden="true">
+             <img src="images\icon-no-fear.svg" alt="" />
+            </div>
+            <h3>NO FEAR OF<br>FAILING</h3>
+            <p>miss a day?<br>no problem<br>nexora never<br>judges you</p>
+          </article>
+
+
+          <!-- Middle card -->
+          <article class="pill pill--tall reveal" style="--d: 160ms">
+          <div class="pill__icon" aria-hidden="true">
+              <!-- Replace with your SVG icon -->
+              <img src="images\icon-trust.svg" alt="" />
+            </div>
+            <h3>BUILT ON<br>TRUST</h3>
+            <p>
+              your data is safe<br>
+              your journey is<br>
+              yours designed<br>
+              with real young<br>
+              adults in mind
+            </p>
+          </article>
+
+          <!-- Right card -->
+          <article class="pill pill--right reveal" style="--d: 240ms">
+          <div class="pill__icon pill__icon--mini" aria-hidden="true">
+              <!-- Replace with your SVG icon -->
+              <img src="images\icon-simple.svg" alt="" />
+            </div>
+            <h3>SIMPLE FOR<br>DAILY USE</h3>
+            <p>
+              no<br>
+              complicated<br>
+              setup select<br>
+              your habits<br>
+              and start
+            </p>
+          </article>
+        </div>
+
+        <p class="why__note reveal" style="--d: 260ms">
+          WE KNOW YOUR FEARS YOU ARE NOT ALONE IN THIS JOURNEY
+        </p>
+
+        <!-- Decorative corner circles like screenshot -->
+        <div class="corner corner--tl" aria-hidden="true"></div>
+        <div class="corner corner--tr" aria-hidden="true"></div>
+        <div class="corner corner--bl" aria-hidden="true"></div>
+        <div class="corner corner--br" aria-hidden="true"></div>
+      </section>
+
+     <!-- FEEDBACK -->
+        <section id="feedback" class="feedback" aria-label="Customer feedback">
+         <header class="feedback__head reveal">
+         <h2>DO NOT TAKE OUR WORDS</h2>
+         <p>TRUST OUR <strong>CUSTOMERS</strong></p>
+        </header>
+
+         <!-- Wrapper for both rows -->
+         <div class="testimonials-wrapper">
+
+         <!-- Row 1 -->
+             <div class="testimonials-row">
+            <article class="t t--blue reveal" role="listitem" style="--d: 60ms">
+                 <div class="t__avatar" aria-hidden="true">
+                     <img src="images/avatar-lina.svg" alt="Lina" />
+                 </div>
+             <div class="t__body">
+             <p>
+             The UI is so simple. It gives<br>
+             me clarity on my health<br>
+             goals without the usual<br>
+             medical clutter
+            </p>
+          <div class="t__meta">Lina, 21</div>
+        </div>
+      </article>
+
+      <article class="t t--purple reveal" role="listitem" style="--d: 120ms">
+        <div class="t__avatar" aria-hidden="true">
+          <img src="images/avatar-omar.svg" alt="Omar" />
+        </div>
+        <div class="t__body">
+          <p>
+            The Orbe feedback loop is<br>
+            addictive. Seeing my progress<br>
+            visually without the stress of a<br>
+            “streak” is genius
+          </p>
+          <div class="t__meta">Omar, 25</div>
+        </div>
+      </article>
+
+      <article class="t t--blue reveal" role="listitem" style="--d: 180ms">
+        <div class="t__avatar" aria-hidden="true">
+          <img src="images/avatar-rania.svg" alt="Rania" />
+        </div>
+        <div class="t__body">
+          <p>
+            I love that Nexora doesn’t<br>
+            punish me if I miss a day. The<br>
+            Resilience focus actually<br>
+            makes me want to come<br>
+            back
+          </p>
+          <div class="t__meta">Rania, 23</div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="testimonials-row">
+      <article class="t t--purple reveal" role="listitem" style="--d: 240ms">
+        <div class="t__avatar" aria-hidden="true">
+          <img src="images/avatar-maria.svg" alt="Maria" />
+        </div>
+        <div class="t__body">
+          <p>
+            The badges feel like real<br>
+            achievements. It’s a system<br>
+            that treats my health<br>
+            journey, not a chore
+          </p>
+          <div class="t__meta">Maria, 20</div>
+        </div>
+      </article>
+
+      <article class="t t--blue reveal" role="listitem" style="--d: 300ms">
+        <div class="t__avatar" aria-hidden="true">
+          <img src="images\avatar-omar.svg" alt="Imad" />
+        </div>
+        <div class="t__body">
+          <p>
+            I finally have a clear health<br>
+            goal. The website is so<br>
+            clean that I know exactly<br>
+            what to do in seconds
+          </p>
+          <div class="t__meta">Imad, 21</div>
+        </div>
+      </article>
+
+      <article class="t t--purple reveal" role="listitem" style="--d: 360ms">
+        <div class="t__avatar" aria-hidden="true">
+          <img src="images\avatar-lina.svg" alt="Lina" />
+        </div>
+        <div class="t__body">
+          <p>
+            I understand that life<br>
+            happens. The no‑punishment<br>
+            design keeps me from quitting<br>
+            during a busy week
+          </p>
+          <div class="t__meta">Lina, 21</div>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" aria-label="Footer">
+      <div class="footer__inner">
+        <a class="social" href="#" aria-label="Instagram">
+          <img src="images\insta-icon.svg" alt="" />
+          <span>@TheNexoraAur</span>
+        </a>
+        <a class="social" href="#" aria-label="Facebook">
+          <img src="images\fb-icon.svg" alt="" />
+          <span>Nexora Health Community</span>
+        </a>
+        <a class="social" href="#" aria-label="LinkedIn">
+          <img src="images\linkedin-logo_49068.svg" alt="" />
+          <span>Nexora Health Labs</span>
+        </a>
+        <a class="social" href="mailto:hello@nexora.health" aria-label="Email">
+          <img src="images\email-icon.svg" alt="" />
+          <span>hello@nexora.health</span>
+        </a>
+      </div>
+
+      <div class="copyright">
+        <img class="copyright__mark" src="images\copyright-logo.svg" alt="" />
+        <div class="copyright__text">
+          <div class="copyright__title">COPYRIGHT</div>
+          <div class="copyright__sub">All Rights Reserved</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js\home.js"></script>
 </body>
 </html>
