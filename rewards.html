@@ -1,0 +1,662 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Journey</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;900');
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* ---- scene wrapper ---- */
+        .scene {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('./c1dba10a-2653-43dd-b228-9ce3a8ee9a94 1.png') center center / cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ---- dark overlay for depth ---- */
+        .scene::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom,
+                    rgba(10, 5, 30, 0.35) 0%,
+                    rgba(10, 5, 30, 0.10) 40%,
+                    rgba(10, 5, 30, 0.0) 60%,
+                    rgba(10, 5, 30, 0.15) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ---- twinkling stars ---- */
+        .stars {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle var(--dur) ease-in-out infinite alternate;
+            opacity: 0;
+        }
+
+        .star.large {
+            width: 5px;
+            height: 5px;
+            box-shadow: 0 0 6px 2px rgba(255, 255, 200, 0.6);
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.1;
+                transform: scale(0.8);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* ---- shooting star ---- */
+        .shooting-star {
+            position: absolute;
+            top: 8%;
+            right: 12%;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, rgba(255, 255, 200, 0), #fff);
+            border-radius: 2px;
+            transform: rotate(-35deg);
+            animation: shoot 4s ease-in-out infinite;
+            z-index: 3;
+            opacity: 0;
+        }
+
+        .shooting-star::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -3px;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, #fffbe6 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        @keyframes shoot {
+            0% {
+                opacity: 0;
+                transform: rotate(-35deg) translateX(0);
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            15% {
+                opacity: 1;
+                transform: rotate(-35deg) translateX(-120px);
+            }
+
+            20% {
+                opacity: 0;
+                transform: rotate(-35deg) translateX(-160px);
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* ---- golden sparkle particles ---- */
+        .sparkles {
+            position: absolute;
+            inset: 0;
+            z-index: 4;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd54f;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: floatSparkle var(--dur) ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatSparkle {
+            0% {
+                opacity: 0;
+                transform: translateY(0) rotate(0deg) scale(0.5);
+            }
+
+            25% {
+                opacity: 1;
+            }
+
+            75% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-40px) rotate(180deg) scale(1.2);
+            }
+        }
+
+        /* ---- title ---- */
+        .title-area {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: 6vh;
+        }
+
+        .title-area h1 {
+            font-family: 'Poppins', serif;
+            font-weight: 900;
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            color: #fff;
+            text-shadow:
+                0 2px 8px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(180, 160, 255, 0.3);
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+        }
+
+        .title-area h1::before {
+            content: 'Your Journey';
+            position: absolute;
+            transform: translateX(-3px) translateY(12px);
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .title-area p {
+            font-family: 'Poppins', serif;
+            font-weight: 700;
+            font-size: clamp(0.7rem, 2vw, 1.15rem);
+            color: rgba(220, 215, 240, 0.9);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-top: 0.75rem;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ---- journey path / stages ---- */
+        .path-area {
+            position: absolute;
+            bottom: 8vh;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: flex-end;
+            gap: clamp(20px, 4vw, 60px);
+        }
+
+        /* ---- stage marker ---- */
+        .stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .stage:hover {
+            transform: translateY(-6px);
+        }
+
+        .stage-icon {
+            width: clamp(50px, 7vw, 80px);
+            height: clamp(50px, 7vw, 80px);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.4),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .stage-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ---- lock overlay for locked stages ---- */
+        .stage.locked .stage-icon::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 40, 0.55);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lock-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            
+        }
+
+       
+
+        /* ---- glowing ring for locked ---- */
+        .stage.locked .stage-icon {
+            border-color: rgba(80, 160, 255, 0.6);
+            box-shadow:
+                0 0 15px rgba(80, 160, 255, 0.4),
+                0 4px 20px rgba(0, 0, 0, 0.4);
+            animation: lockPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes lockPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 15px rgba(80, 160, 255, 0.3), 0 4px 20px rgba(0, 0, 0, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(80, 160, 255, 0.6), 0 4px 20px rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        /* ---- stage active (unlocked) glow ---- */
+        .stage.active .stage-icon {
+            border-color: rgba(255, 220, 100, 0.7);
+            box-shadow:
+                0 0 20px rgba(255, 200, 50, 0.5),
+                0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ---- banner / label ---- */
+        .stage-label {
+            margin-top: 8px;
+            padding: 5px 16px;
+            border-radius: 6px;
+            font-family: 'Poppins', serif;
+            font-weight: 700;
+            font-size: clamp(0.55rem, 1.3vw, 0.85rem);
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .stage-label.blue {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.5);
+        }
+
+        .stage-label.red {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            box-shadow: 0 3px 10px rgba(220, 38, 38, 0.5);
+        }
+
+        .stage-label.purple {
+            background: linear-gradient(135deg, #7c3aed, #5b21b6);
+            box-shadow: 0 3px 10px rgba(124, 58, 237, 0.5);
+        }
+
+        .stage-label.dark {
+            background: linear-gradient(135deg, #374151, #1f2937);
+            box-shadow: 0 3px 10px rgba(55, 65, 81, 0.5);
+        }
+
+        /* ---- treasure chests ---- */
+        .chest {
+            position: absolute;
+            z-index: 8;
+            width: clamp(60px, 8vw, 100px);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+        }
+
+        .chest:hover {
+            transform: scale(1.1) rotate(-3deg);
+        }
+
+        .chest img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .chest-left {
+            bottom: 6vh;
+            right: 6vw;
+        }
+
+        .chest-right {
+            bottom: 14vh;
+            left: 6vw;
+        }
+
+        /* ---- back button ---- */
+        .back-btn {
+            position: absolute;
+            bottom: 3vh;
+            left: 3vw;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            border-radius: 50px;
+            background: transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow:
+                0 6px 24px rgba(29, 78, 216, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .back-btn:active {
+            transform: scale(0.97);
+        }
+
+        .back-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ---- post / signpost decoration ---- */
+        .stage .post {
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(to bottom, #8B7355, #6B5B3E);
+            margin-top: -2px;
+            border-radius: 0 0 2px 2px;
+        }
+
+        /* ---- grass tuft ---- */
+        .stage .grass {
+            display: flex;
+            gap: 2px;
+            margin-top: -2px;
+        }
+
+        .stage .grass span {
+            width: 3px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50% 50% 0 0;
+            transform-origin: bottom center;
+        }
+
+        .stage .grass span:nth-child(1) {
+            transform: rotate(-20deg);
+            height: 10px;
+        }
+
+        .stage .grass span:nth-child(2) {
+            height: 12px;
+        }
+
+        .stage .grass span:nth-child(3) {
+            transform: rotate(15deg);
+            height: 9px;
+        }
+
+        .stage .grass span:nth-child(4) {
+            transform: rotate(25deg);
+            height: 7px;
+        }
+
+        /* ---- green orb top-left ---- */
+        .green-orb {
+            position: absolute;
+            top: 4vh;
+            left: 10vw;
+            width: 18px;
+            height: 18px;
+            background: radial-gradient(circle, #a3f7a3 0%, #22c55e 50%, transparent 70%);
+            border-radius: 50%;
+            z-index: 5;
+            animation: orbFloat 3s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ---- responsive ---- */
+        @media (max-width: 768px) {
+            .path-area {
+                gap: 12px;
+                bottom: 5vh;
+            }
+
+            .chest {
+                display: none;
+            }
+
+            .title-area {
+                margin-top: 4vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="scene">
+
+        <!-- Stars -->
+        <div class="stars" id="stars"></div>
+    <div class="scene">
+        <!-- Stars -->
+        <div class="stars" id="stars"></div>
+        <!-- Sparkles -->
+        <div class="sparkles" id="sparkles"></div>
+        <!-- Shooting star -->
+        <div class="shooting-star"></div>
+        
+        <!-- Title -->
+        <div class="title-area">
+            <h1>Your Journey</h1>
+            <p>Here where your story begin</p>
+        </div>
+        <!-- Journey path stages -->
+        <div class="path-area">
+            <!-- Stage 1: Beginning (active) -->
+            <div class="stage active" style="transform: translateX(50%);">
+                <img src="./ChatGPT Image 10 févr. 2026, 21_26_03 2.png" alt="Beginning - an open magical book" />
+            </div>
+            <!-- Stage 2: Discovery (locked) -->
+            <div class="stage locked" style="transform: translateX(35%) translateY(10%);">
+                <img src="./ChatGPT Image 10 févr. 2026, 21_26_03 1.png" alt="Awakening stage - magic crystal" />
+                <div class="lock-icon" style="transform: translateX(-50%) translateY(-40%);">
+                    <img src="./2dbdce84-b75d-4ca4-92ac-f8ddf08ddcd1 1.png" alt="Awakening stage - magic crystal" />
+                </div>
+            </div>
+            <!-- Stage 3: Awakening (locked) -->
+            <div class="stage locked" style="transform: translateX(-5%) translateY(-5%);">
+                <img src="./ChatGPT Image 10 févr. 2026, 21_26_03 3.png" alt="Awakening stage - magic crystal" />
+                <div class="lock-icon" style="transform: translateX(-50%) translateY(-40%);">
+                    <img src="./2dbdce84-b75d-4ca4-92ac-f8ddf08ddcd1 1.png" alt="Awakening stage - magic crystal" />
+                </div>
+            </div>
+            <!-- Stage 4: Mastery (locked) -->
+            <div class="stage locked" style="transform: translateX(-20%) translateY(-30%);">
+                <img src="./ChatGPT Image 10 févr. 2026, 21_26_03 4.png" alt="Awakening stage - magic crystal" />
+                <div class="lock-icon" style="transform: translateX(-50%) translateY(-30%);">
+                    <img src="./2dbdce84-b75d-4ca4-92ac-f8ddf08ddcd1 1.png" alt="Awakening stage - magic crystal" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Back button -->
+        <button class="back-btn" onclick="history.back()">
+            <img src="./dd7013f1-bc8d-4033-b602-7050a9c04ba8 1.png" alt="Back" />
+        </button>
+        <!-- Popup Modal -->
+        <div id="popup-modal" style="display:none;">
+            <div class="popup-content" id="popup-content">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+    <style>
+        #popup-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(30, 30, 60, 0.35);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .popup-content {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(30, 30, 60, 0.18);
+            padding: 2.5rem 2rem;
+            min-width: 320px;
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+        }
+        .popup-content h2 {
+            font-family: 'Poppins', serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: #0A1F72;
+            margin-bottom: 1rem;
+        }
+        .popup-content p {
+            font-family: 'Poppins', serif;
+            font-size: 24px;
+            color: #0A1F72;
+            margin-bottom: 1.5rem;
+        }
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #eee;
+            border: none;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.2s;
+        }
+        .popup-close:hover {
+            background: #e0e0e0;
+        }
+    </style>
+    <script>
+        // Generate random twinkling stars
+        (function () {
+            const container = document.getElementById('stars');
+            const count = 80;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star' + (Math.random() > 0.85 ? ' large' : '');
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 50 + '%'; // top half only
+                star.style.setProperty('--dur', (1.5 + Math.random() * 3) + 's');
+                star.style.animationDelay = (Math.random() * 4) + 's';
+                container.appendChild(star);
+            }
+        })();
+        // Generate floating golden sparkles
+        (function () {
+            const container = document.getElementById('sparkles');
+            const count = 30;
+            for (let i = 0; i < count; i++) {
+                const sp = document.createElement('div');
+                sp.className = 'sparkle';
+                sp.style.left = 15 + Math.random() * 70 + '%';
+                sp.style.top = 30 + Math.random() * 60 + '%';
+                sp.style.setProperty('--dur', (3 + Math.random() * 4) + 's');
+                sp.style.animationDelay = (Math.random() * 6) + 's';
+                container.appendChild(sp);
+            }
+        })();
+        // Popup logic
+        function showPopup(contentHtml) {
+            const modal = document.getElementById('popup-modal');
+            const content = document.getElementById('popup-content');
+            content.innerHTML = contentHtml + '<button class="popup-close" onclick="hidePopup()">&times;</button>';
+            modal.style.display = 'flex';
+        }
+        function hidePopup() {
+            document.getElementById('popup-modal').style.display = 'none';
+        }
+        // Add click listeners to stages
+        document.addEventListener('DOMContentLoaded', function() {
+            const stages = document.querySelectorAll('.stage');
+            stages.forEach(function(stage) {
+                stage.addEventListener('click', function() {
+                    if (stage.classList.contains('locked')) {
+                        showPopup(`<h2>UNLOCK NEXT CHAPTERS BY LEVELING UP!!!</h2>`);
+                    } else if (stage.classList.contains('active')) {
+                        showPopup('<h2>Chapter I — The Beginning</h2><p>It didn’t start with perfection or a master plan — it started with a choice. A quiet decision to stop drifting and begin becoming. You didn’t wait for motivation, you didn’t wait to feel ready — you simply showed up. And that small step, almost invisible to the world, was the moment everything shifted. Because every transformation begins the same way: not with confidence, not with certainty, but with courage. And now that you’ve begun, there’s only one direction left to go — forward.</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</html>

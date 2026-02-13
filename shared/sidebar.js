@@ -1,10 +1,10 @@
-// This script highlights the active sidebar link based on the current page name.
+
 // Usage: call sidebarInit({ activePage: 'page-name' }) after sidebar HTML is loaded.
 
 (function () {
   // Function to add active class to the correct link
   function setActiveLink(pageName) {
-    // Select all sidebar links
+    // Select all sidebargit  links
     const links = document.querySelectorAll('.sidebar__link');
     links.forEach(link => {
       // If the link's data-page matches the active page, add active class

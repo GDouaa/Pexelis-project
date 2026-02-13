@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Nexora</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="scale.js"></script>
+  <style>
+    /* Inner — couvre toute la zone utile */
+    .inner {
+      position: absolute;
+      top:    var(--frame-border);
+      left:   calc(40px * var(--s));
+      right:  calc(40px * var(--s));
+      bottom: 14.33%;
+      display: flex;
+      flex-direction: column;
+      gap: calc(16px * var(--s));
+    }
+
+    .title-row {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: calc(20px * var(--s));
+    }
+    .title-bar {
+      flex: 1;
+      max-width: calc(302px * var(--s));
+      height: calc(27px * var(--s));
+      background: #2D439D;
+      border-radius: calc(4px * var(--s));
+    }
+    .page-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: calc(36px * var(--s));
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .content-card {
+      flex: 1;
+      min-height: 0;
+      background: var(--card-bg);
+      border: calc(8px * var(--s)) solid var(--primary);
+      border-radius: calc(60px * var(--s));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card-inner {
+      text-align: center;
+      padding: 0 calc(80px * var(--s));
+    }
+    .card-body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: calc(22px * var(--s));
+      line-height: 1.6;
+      color: #000;
+    }
+
+    .page-date {
+      flex-shrink: 0;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      font-size: calc(22px * var(--s));
+      color: #000;
+    }
+
+    /* Cercles décoratifs — viennent APRÈS .inner dans le DOM = au premier plan */
+    .circle-tl {
+      position: absolute;
+      width:  calc(456px * var(--s));
+      height: calc(444px * var(--s));
+      border-radius: 50%;
+      background: #133492;
+      top:  calc(-203px * var(--s));
+      left: calc(-180px * var(--s));
+      pointer-events: none;
+    }
+    .circle-br {
+      position: absolute;
+      width:  calc(456px * var(--s));
+      height: calc(444px * var(--s));
+      border-radius: 50%;
+      background: #133492;
+      top:   calc(610px * var(--s));
+      right: calc(-282px * var(--s));
+      pointer-events: none;
+    }
+
+    /* BACK — centré sur le centroïde de la portion visible du cercle TL */
+    .back-link {
+      position: absolute;
+      z-index: 20;
+      top:  calc(137px * var(--s));
+      left: calc(145px * var(--s));
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: calc(34px * var(--s));
+      color: #fff;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .back-link:hover { opacity: 0.75; }
+  </style>
+</head>
+<body>
+  <div class="page-frame"></div>
+  <div class="page">
+
+    <!-- 1. Contenu (derrière les cercles) -->
+    <div class="inner">
+      <div class="title-row">
+        <div class="title-bar"></div>
+        <span class="page-title">Privacy Policy</span>
+        <div class="title-bar"></div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-inner">
+          <p class="card-body">
+            At Nexora, we respect your privacy.<br /><br />
+            We may collect basic information (such as email or usage data)<br />
+            to help you track habits, stay motivated, and improve the platform.<br /><br />
+            We do not sell your data.<br />
+            Your information is stored securely and used only for Nexora's features.<br /><br />
+            You can request to access or delete your data at any time.<br /><br />
+            Contact: <a href="mailto:contact@nexora.app" style="color:var(--primary)">contact@nexora.app</a>
+          </p>
+        </div>
+      </div>
+
+      <p class="page-date">Last updated: February 2026</p>
+    </div>
+
+    <!-- 2. Cercles (au premier plan, après .inner) -->
+    <div class="circle-tl"></div>
+    <div class="circle-br"></div>
+
+    <!-- 3. BACK (z-index 20, cliquable au-dessus des cercles) -->
+    <a href="index.html" class="back-link">BACK</a>
+
+    <footer class="footer">
+      <div class="footer-copyright">
+        <span class="footer-copy-icon">©</span>
+        <div class="footer-copy-text">
+          <span>COPYRIGHT</span>
+          <span>All Rights Reserved</span>
+        </div>
+      </div>
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="terms.html"   class="footer-link">Terms of Service</a>
+    </footer>
+  </div>
+</body>
+</html>

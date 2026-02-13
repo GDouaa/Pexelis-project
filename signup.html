@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up — Nexora</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="scale.js"></script>
+  <style>
+    /* Avatar positions — SIGNUP (Figma x/1728, y/1117) */
+    .av1 { left: 9.1%;  top: 22.7%; }
+    .av2 { left: 30.6%; top: 23.5%; }
+    .av3 { left: 20.8%; top: 27.8%; }
+    .av4 { left: 20.8%; top: 51.5%; }
+    .av5 { left: 9.7%;  top: 60.2%; }
+    .av6 { left: 30.0%; top: 58.4%; }
+
+    /* Decorative text */
+    .deco-text {
+      position: absolute;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      color: var(--primary);
+      pointer-events: none;
+      user-select: none;
+      z-index: 2;
+      line-height: 1;
+    }
+    .deco-your   { left: 21%;  top: 11%;  font-size: calc(64px * var(--s)); }
+    .deco-choose { left: 3.5%; top: 47%;  font-size: calc(48px * var(--s)); }
+    .deco-avatar { left: 34%;  top: 46%;  font-size: calc(48px * var(--s)); }
+
+    .right-panel {
+      position: absolute;
+      right: 6.7%;
+      top: 0;
+      bottom: 14.33%;
+      width: 38.7%;
+      display: flex;
+      align-items: center;
+      z-index: 5;
+    }
+
+    .form-card {
+      width: 100%;
+      padding: calc(40px * var(--s)) calc(50px * var(--s));
+    }
+
+    .card-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: calc(45px * var(--s));
+      color: var(--primary);
+      letter-spacing: calc(3.6px * var(--s));
+      text-align: center;
+      margin-bottom: calc(20px * var(--s));
+    }
+
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: calc(14px * var(--s));
+      margin-bottom: calc(20px * var(--s));
+    }
+
+    /* Compact inputs for 4-field form */
+    .input-field  { height: calc(48px * var(--s)); font-size: calc(18px * var(--s)); }
+    .input-label  { font-size: calc(20px * var(--s)); }
+    .btn-next     { height: calc(80px * var(--s)); width: calc(340px * var(--s)); }
+
+    .card-footer { display: flex; justify-content: center; }
+  </style>
+</head>
+<body>
+  <div class="page-frame"></div>
+  <div class="page">
+
+    <div class="avatar-group av1"><img src="images/Group 39.svg" alt="Avatar" /></div>
+    <div class="avatar-group av2"><img src="images/Group 34.svg" alt="Avatar" /></div>
+    <div class="avatar-group av3"><img src="images/Group 35.svg" alt="Avatar" /></div>
+    <div class="avatar-group av4"><img src="images/Group 37.svg" alt="Avatar" /></div>
+    <div class="avatar-group av5"><img src="images/Group 38.svg" alt="Avatar" /></div>
+    <div class="avatar-group av6"><img src="images/Group 36.svg" alt="Avatar" /></div>
+
+    <span class="deco-text deco-your">YOUR</span>
+    <span class="deco-text deco-choose">CHOOSE</span>
+    <span class="deco-text deco-avatar">AVATAR</span>
+
+    <div class="right-panel">
+      <div class="form-card">
+        <h1 class="card-title">Sign Up</h1>
+
+        <div class="form-fields">
+          <div class="input-group">
+            <label class="input-label">EMAIL :</label>
+            <input class="input-field" type="email" placeholder="eg : username03@gmail.com" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">USERNAME :</label>
+            <input class="input-field" type="text" placeholder="eg : username" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">PASSWORD :</label>
+            <input class="input-field" type="password" placeholder="••••••••" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">CONFIRM PASSWORD :</label>
+            <input class="input-field" type="password" placeholder="••••••••" />
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <button class="btn-next"><span>NEXT</span></button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-copyright">
+        <span class="footer-copy-icon">©</span>
+        <div class="footer-copy-text">
+          <span>COPYRIGHT</span>
+          <span>All Rights Reserved</span>
+        </div>
+      </div>
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="terms.html"   class="footer-link">Terms of Service</a>
+    </footer>
+
+  </div>
+</body>
+</html>
