@@ -1,0 +1,271 @@
+/* weekly-plan.css */
+
+.page-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #cfe3ff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.weekly-plan-main {
+  flex-grow: 1;
+  padding: 30px 40px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #0f2a7a;
+  position: relative;
+}
+
+/* Search bar */
+.search-bar {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  display: flex;
+  gap: 8px;
+  background: #eaf2ff;
+  border-radius: 40px;
+  padding: 6px 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.search-bar input[type="search"] {
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 6px 8px;
+  width: 180px;
+  color: #0f2a7a;
+  border-radius: 40px;
+  outline: none;
+}
+
+.search-bar button {
+  background: #0f2a7a;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background: #123f9e;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Content columns */
+.content-columns {
+  display: flex;
+  gap: 24px;
+  margin-top: 80px;
+}
+
+/* Left column */
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 1 60%;
+}
+
+/* Right column */
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1 1 40%;
+}
+
+/* Card base */
+.card {
+  background: white;
+  border-radius: 26px;
+  padding: 20px 30px;
+  box-shadow: 0 18px 40px rgba(5, 25, 80, 0.1);
+}
+
+/* Week Progress */
+.week-progress h2 {
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.week-bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px;
+}
+
+/* Bar container: bar fill on top, circle label below */
+.bar {
+  width: 38px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+/* Colored bar fill */
+.bar-fill {
+  width: 100%;
+  height: var(--bar-height);
+  background: var(--bar-color);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 14px 26px rgba(9, 30, 90, 0.1);
+  transition: height 0.3s ease;
+  margin-bottom: -6px; /* Pull bar down to touch circle */
+  z-index: 1;
+}
+
+/* Circle with week number below the bar */
+.bar-label {
+  background: #0f2a7a;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  user-select: none;
+  z-index: 2;
+}
+
+/* Streak Progress */
+.streak-progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(5, 25, 80, 0.1);
+}
+
+.streak-svg {
+  width: 280px;
+  height: auto;
+  user-select: none;
+}
+
+.streak-count {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f2a7a;
+  user-select: none;
+}
+
+/* Daily Progress Bars stacked vertically */
+.daily-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.progress-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-item label {
+  width: 110px;
+  font-weight: 600;
+  user-select: none;
+}
+
+progress {
+  flex-grow: 1;
+  height: 18px;
+  border-radius: 12px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #d9d9d9;
+  overflow: hidden;
+  position: relative;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #d9d9d9;
+  border-radius: 12px;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 12px;
+  background: linear-gradient(90deg, #d8b8ff, #b8ddff);
+}
+
+.progress-percent {
+  width: 40px;
+  font-weight: 600;
+  user-select: none;
+  text-align: right;
+}
+
+/* Days Highlight stacked vertically */
+.days-highlight {
+  background: white;
+  border-radius: 26px;
+  padding: 20px;
+  box-shadow: 0 18px 40px rgba(5, 25, 80, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  font-weight: 700;
+  color: #a0a9c0;
+  user-select: none;
+}
+
+.day {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.day--active {
+  font-size: 28px;
+  color: #0f2a7a;
+  opacity: 1;
+}
+
+/* Footer message */
+.footer-message {
+  font-weight: 900;
+  font-size: 18px;
+  text-align: center;
+  color: #0f2a7a;
+  font-style: italic;
+  margin-top: auto;
+  user-select: none;
+}
+
+/* Sidebar active link style to merge with main content */
+.sidebar__link.sidebar__link--active {
+  background-color: #cfe3ff;
+  color: #0f2a7a;
+  border-radius: 0 26px 26px 0;
+  box-shadow: none;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.sidebar__link.sidebar__link--active img.sidebar__icon {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(90%) saturate(749%) hue-rotate(197deg) brightness(93%) contrast(90%);
+}
+

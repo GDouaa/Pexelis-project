@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weekly Plan - NeXora</title>
+
+  <!-- Sidebar CSS -->
+  <link rel="stylesheet" href="shared\sidebar.css" />
+  <!-- Weekly Plan CSS -->
+  <link rel="stylesheet" href="css\weekly-plan.css" />
+</head>
+<body>
+  <div class="page-container">
+    <!-- Sidebar -->
+    <div id="sidebar-placeholder"></div>
+
+    <!-- Main content -->
+    <main class="weekly-plan-main" aria-label="Weekly Plan Content">
+      <!-- Search bar top right -->
+      <form class="search-bar" role="search" aria-label="Search">
+        <input type="search" placeholder="SEARCH" aria-label="Search input" />
+        <button type="submit" aria-label="Search button">
+          <img src="images\search-icon.svg" alt="Search icon" class="search-icon" />
+        </button>
+      </form>
+
+      <!-- Content columns -->
+      <div class="content-columns">
+        <!-- Left column -->
+        <div class="left-column">
+          <!-- Week Progress -->
+          <section class="card week-progress" aria-label="Week Progress">
+            <h2>WEEK PROGRESS</h2>
+            <div class="week-bars" role="group" aria-label="7 day progress bars">
+              <div class="bar" style="--bar-height: 88%; --bar-color: #d8b8ff;">
+                <div class="bar-fill"></div>
+                <div class="bar-label">1</div>
+              </div>
+              <div class="bar" style="--bar-height: 62%; --bar-color: #b8ddff;">
+                <div class="bar-fill"></div>
+                <div class="bar-label">2</div>
+              </div>
+              <div class="bar" style="--bar-height: 78%; --bar-color: #bff2c8;">
+                <div class="bar-fill"></div>
+                <div class="bar-label">3</div>
+              </div>
+              <div class="bar" style="--bar-height: 92%; --bar-color: #b8ddff;">
+                <div class="bar-fill"></div>
+                <div class="bar-label">4</div>
+              </div>
+              <div class="bar" style="--bar-height: 46%; --bar-color: #f3e6b2;">
+                <div class="bar-fill"></div>
+                <div class="bar-label">5</div>
+              </div>
+              <div class="bar" style="--bar-height: 76%; --bar-color: #bff2c8;">
+                <div class="bar-fill"></div>
+                <div class="bar-label">6</div>
+              </div>
+              <div class="bar" style="--bar-height: 84%; --bar-color: #d8b8ff;">
+                <div class="bar-fill"></div>
+                <div class="bar-label">7</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Streak Progress -->
+          <section class="card streak-progress" aria-label="Streak Progress">
+            <img src="images\streak-progress.svg" alt="Streak Progress" class="streak-svg" />
+            <div class="streak-count">7 DAYS / 7 DAYS</div>
+          </section>
+        </div>
+
+        <!-- Right column -->
+        <div class="right-column">
+          <!-- Daily Progress Bars -->
+          <section class="card daily-progress" aria-label="Daily Progress">
+            <div class="progress-item">
+              <label for="workout-progress">Workout</label>
+              <progress id="workout-progress" max="100" value="70"></progress>
+              <span class="progress-percent">70%</span>
+            </div>
+            <div class="progress-item">
+              <label for="food-progress">Healthy food</label>
+              <progress id="food-progress" max="100" value="91"></progress>
+              <span class="progress-percent">91%</span>
+            </div>
+            <div class="progress-item">
+              <label for="water-progress">Water</label>
+              <progress id="water-progress" max="100" value="62"></progress>
+              <span class="progress-percent">62%</span>
+            </div>
+            <div class="progress-item">
+              <label for="sleep-progress">Sleeping</label>
+              <progress id="sleep-progress" max="100" value="58"></progress>
+              <span class="progress-percent">58%</span>
+            </div>
+          </section>
+
+          <!-- Days Highlight -->
+          <section class="card days-highlight" aria-label="Days of the week">
+            <div class="day" data-day="thu">THURSDAY</div>
+            <div class="day" data-day="sat">SATURDAY</div>
+            <div class="day day--active" data-day="sun">SUNDAY</div>
+            <div class="day" data-day="mon">MONDAY</div>
+            <div class="day" data-day="tue">TUESDAY</div>
+            <div class="day" data-day="wed">WEDNESDAY</div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Footer message -->
+      <footer class="footer-message">
+        ONE WEEK CLOSER TO YOUR GOAL
+      </footer>
+    </main>
+  </div>
+
+  <!-- Sidebar JS -->
+  <script src="shared\sidebar.js"></script>
+  <!-- Weekly Plan JS -->
+  <script src="js\weekly-plan.js"></script>
+</body>
+</html>
+
+
+
+
