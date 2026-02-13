@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeXora Dashboard</title>
+    <link rel="stylesheet" href="css\profil.css">
+    <script src=" js\profil.js"></script>
+    <link rel="stylesheet" href="shared\sidebar.css">
+    
+    
+</head>
+<body>
+        <!-- sidebar.html -->
+<!-- Sidebar container: vertical navigation bar on the left -->
+ <div class="dashboard-container">
+<aside class="sidebar">
+  <!-- Brand section: logo and app name -->
+  <div class="sidebar__brand">
+    <!-- Profile photo or logo circle -->
+    <div class="sidebar__logo"></div>
+    <!-- App name text -->
+    <div class="sidebar__title">NeXora</div>
+  </div>
+
+  <!-- Navigation menu -->
+  <nav class="sidebar__nav" aria-label="Main navigation">
+    <!-- Profile link -->
+    <a href="enter profil link" class="sidebar__link" data-page="profile">
+      <!-- Icon image for Profile -->
+      <img src="images\pfp-icon.svg" alt="Profile icon" class="sidebar__icon" />
+      <!-- Link text -->
+      <span class="sidebar__text">Profile</span>
+    </a>
+
+    <!-- Weekly Plan link (active by default here) -->
+    <a href="enter weekly plan link" class="sidebar__link sidebar__link--active" data-page="weekly-plan">
+      <!-- Icon image for Weekly Plan -->
+      <img src="images\agenda-icon.svg" alt="Weekly Plan icon" class="sidebar__icon" />
+      <span class="sidebar__text">Weekly Plan</span>
+    </a>
+
+    <!-- Dashboard link -->
+    <a href="../pages/dashboard.html" class="sidebar__link" data-page="dashboard">
+      <img src="images\dashboard-icon.svg" alt="Dashboard icon" class="sidebar__icon" />
+      <span class="sidebar__text">Dashboard</span>
+    </a>
+
+    <!-- Posts link -->
+    <a href="../pages/posts.html" class="sidebar__link" data-page="posts">
+      <img src="images\posts-icon.svg" alt="Posts icon" class="sidebar__icon" />
+      <span class="sidebar__text">Posts</span>
+    </a>
+
+    <!-- Rewards link -->
+    <a href="../pages/rewards.html" class="sidebar__link" data-page="rewards">
+      <img src="images\rewards-icon.svg" alt="Rewards icon" class="sidebar__icon" />
+      <span class="sidebar__text">Rewards</span>
+    </a>
+  </nav>
+</aside>
+
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="search-container">
+  <input type="text" class="search-input" placeholder="SEARCH">
+  <button class="search-button">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </button>
+</div>
+            </header>
+            
+            <div class="grid-layout">
+               <div class="profile-card">
+  <div class="profile-card__avatar">
+    <img src="images\AVATAR.svg" alt="User Avatar">
+  </div>
+  <div class="profile-card__info">
+    <h2 class="username">@username</h2>
+    <p><strong>Gmail:</strong> username03@gmail.com</p>
+    <p><strong>Password:</strong> ******** <span class="lock">🔒</span></p>
+    <p><strong>Phone (optional):</strong> 067......9</p>
+  </div>
+</div>
+
+                <section class="card streak-card">
+                    <img src="images\fire-streak.svg" alt="streak fire icon" class="streak-icon">
+                    <h3>STREAK</h3>
+                    <div class="streak-num">8 DAYS</div>
+                    <button class="btn btn-restart">RESTART</button>
+                </section>
+
+
+
+                <section class="journey-habits">
+  <!-- JOURNEY & HABITS CARD -->
+<div class="journey-habits-card">
+  <!-- LEFT COLUMN: Energy + Notes -->
+  <div class="journey-left">
+    <h2 class="section-title">Journey & Habits</h2>
+
+    <!-- ENERGY LEVEL -->
+    <div class="energy">
+      <h3 class="sub-title">Energy Level</h3>
+      <div class="energy-bar">
+        <div class="energy-fill low"></div>
+        <div class="energy-fill medium"></div>
+        <div class="energy-fill high"></div>
+      </div>
+    </div>
+
+    <!-- TODAY'S NOTES -->
+    <div class="notes">
+      <h3 class="sub-title">Today's Notes</h3>
+      <textarea placeholder="Write your note here..."></textarea>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: My Habits -->
+  <div class="habits-right">
+    <h3 class="sub-title">My Habits:</h3> 
+    <div class="habits-container">
+      <div class="habit-item"><span class="habit-icon" >💧</span> Drink Water</div>
+      <div class="habit-item"><span class="habit-icon">🏃‍♂️</span> Exercise</div>
+      <div class="habit-item"><span class="habit-icon">📖</span> Read</div>
+      <div class="habit-item"><span class="habit-icon">🧘‍♀️</span> Meditate</div>
+    </div>
+  </div>
+</div>
+
+                </section>
+
+
+                <section class="card settings-card">
+                    <h3> <img src="images\settings-icon.svg" alt="settings icon"> Settings</h3>
+                    <!-- DARK MODE TOGGLE -->
+  <div class="setting-item">
+    <label for="darkModeToggle">Dark Mode</label>
+    <!-- NEW TOGGLE -->
+<label class="switch">
+  <input type="checkbox" id="darkModeToggle">
+  <span class="slider"></span>
+</label>
+
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div class="setting-item">
+    <label for="notificationsToggle">
+      <span class="notification-icon">🔔</span> Notifications
+    </label>
+    <input type="checkbox" id="notificationsToggle">
+  </div>
+
+  <!-- CHANGE PASSWORD -->
+  <div class="change-password">
+    <h3 class="sub-title">Change Password</h3>
+    <input type="password" placeholder="Old Password" id="oldPassword">
+    <input type="password" placeholder="New Password" id="newPassword">
+    <button id="changePasswordBtn">Validate</button>
+  </div>
+
+  <!-- LOG OUT -->
+  <button id="logoutBtn" class="logout-btn">Log Out</button>
+
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src=" shared\sidebar.js"></script>
+ </div>
+</body>
+</html>
