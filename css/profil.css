@@ -1,0 +1,590 @@
+:root {
+    --bg-blue: #D6E8FA;
+    --sidebar-blue: #172A60;
+    --card-white: #ffffff;
+    --text-blue: #133492;
+    --input-bg: #F5F9FF;
+}
+
+body {
+    margin: 0;
+    font-family: 'poppins', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-blue);
+    color: var(--text-blue);
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 50, 0.1);
+  width: 400px; /* exact width you want */
+  height: 150px; /* exact height */
+  margin-bottom: 20px;
+}
+
+.profile-card__avatar {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #1c2f80; /* dark blue border like your screenshot */
+  margin-right: 20px;
+}
+
+
+.profile-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-card__info .username {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1c2f80; /* dark blue */
+  margin-bottom: 5px;
+}
+
+.profile-card__info p {
+  font-size: 14px;
+  color: #0f1a4c;
+  margin: 2px 0;
+}
+
+.profile-card__info .lock {
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+
+
+.details {
+  font-size: 18px;
+  margin: 0;
+}
+.search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex-grow: 1;
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #5B74BC; /* Light blue text color */
+}
+
+.search-input::placeholder {
+  color: #5B74BC;
+}
+
+.search-button {
+  background-color: #1a3a9b; /* Deep blue from image */
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.search-button:hover {
+  transform: scale(1.05);
+  background-color: #142d7a;
+}
+
+.search-button svg {
+  width: 24px;
+  height: 24px;
+  color: #cbd5e1; /* Silver/Light grey for the icon */
+}
+/* Main Content Styling */
+.main-content {
+    flex: 1;
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    width: 280px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px 0 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.search-container input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    color: #A0B3D5; /* The light blue color of the word 'SEARCH' */
+    letter-spacing: 1px;
+    width: 60%;
+}
+
+/* The blue pill-shaped button on the right */
+.search-button {
+    width: 55px; /* Matches W: 87 in design tool */
+    height: 55px; /* Matches H: 72 in design tool */
+    background-color: #133492; /* Exact Remplissage from screenshot */
+    border-radius: 60px; /* Rayon d'angle: 60 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Ombre portÃ©e from properties */
+}
+
+/* The "SEARCH" text styling */
+.search-container input {
+    width: 131px;
+    height: 19px;
+    border: none;
+    background: transparent;
+    outline: none;
+    
+    /* Typography settings */
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 400; /* Regular */
+    color: #5B74BC; /* Exact hex from design tool */
+    text-transform: uppercase;
+}
+
+/* Ensure the icon inside the button is white and centered */
+.search-icon-img {
+    width: 35px;
+    height: auto;
+    filter: brightness(0) invert(1); /* Forces icon to white if it's a black PNG */
+}
+/* Grid Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "profile streak"
+    "journey settings";
+  gap: 20px;
+}
+
+.profile-card { grid-area: profile; }
+.streak-card { grid-area: streak; }
+.journey-card { grid-area: journey; }
+.settings-card { grid-area: settings; }
+
+/* Common Card Styling */
+.card {
+    background: var(--card-white);
+    border-radius: 45px;
+    padding: 22px;
+    border-radius: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+
+.energy-bar {
+  width: 300px;
+  height: 20px;
+  border-radius: 20px;
+  background: linear-gradient(to right, red, yellow, green);
+  position: relative;
+}
+
+.energy-fill {
+  height: 100%;
+  width: 75%;
+  border-radius: 20px;
+}
+
+.energy-knob {
+  width: 25px;
+  height: 25px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  border: 3px solid #133492;
+}
+
+
+
+
+
+
+
+/* OUTER CARD */
+.journey-habits-card {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  background-color: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 900px;
+  margin: 0 auto;
+  align-items: flex-start;
+  font-family: 'Inter', sans-serif;
+}
+
+/* LEFT COLUMN */
+.journey-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+/* TITLES */
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #111111;
+}
+
+.sub-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555555;
+}
+
+/* ENERGY BAR */
+.energy-bar {
+  display: flex;
+  height: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.energy-fill {
+  flex: 1;
+}
+
+.energy-fill.low { background-color: #f05454; }
+.energy-fill.medium { background-color: #f4a261; }
+.energy-fill.high { background-color: #4caf50; }
+
+/* NOTES */
+.notes textarea {
+  width: 100%;
+  height: 160px;
+  border-radius: 32px;
+  border: 3px solid #ccc;
+  padding: 16px;
+  resize: none;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* RIGHT COLUMN */
+.habits-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 280px;
+}
+
+/* PUSH HABITS DOWN TO ALIGN */
+.habits-right .habits-container {
+  background-color: #f0f0f0;
+  border-radius: 24px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px; /* pushes container down next to energy + notes */
+}
+
+/* EACH HABIT */
+.habit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Buttons */
+.btn {
+    border: none;
+    border-radius: 25px;
+    padding: 12px 30px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--sidebar-blue);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(22, 54, 145, 0.3);
+}
+
+.btn-restart, .btn-logout {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Input Fields */
+input[type="password"], .note-input {
+    background: var(--input-bg);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+
+
+
+
+
+
+.profile-card,
+.streak-card,
+.journey-card,
+.settings-card {
+  width: 100%;
+}
+
+
+/* The Blue Flame Icon */
+.streak-icon {
+  width: 100px;           /* Adjust based on your asset size */
+  margin-bottom: 10px;
+}
+
+/* "STREAK" Text */
+.streak-label {
+  color: #1a3673;
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* "8 DAYS" Text */
+.streak-count {
+  color: #133492;         /* Lighter blue from the design */
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+/* The "RESTART" Button */
+.restart-button {
+  position: absolute;
+  bottom: -20px;          /* Pushes half of the button outside the card */
+  background-color: rgba(19, 52, 146, 0.9);
+  color: #133492;
+  padding: 10px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(225, 204, 204, 0.468);
+}
+
+
+/* SETTINGS CARD */
+.settings-card {
+  max-width: 400px;
+  background-color: #ffffff; /* light mode default */
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 32px;
+  margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* DARK MODE STYLES */
+body.dark-mode .settings-card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+/* SETTINGS TITLE */
+.settings-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* SETTING ITEMS */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.setting-item label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.notification-icon {
+  margin-right: 8px;
+}
+
+/* CHANGE PASSWORD */
+.change-password {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.change-password input {
+  padding: 12px;
+  border-radius: 16px;
+  border: 2px solid #ccc;
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+body.dark-mode .change-password input {
+  background-color: #333333;
+  border-color: #555555;
+  color: #f0f0f0;
+}
+
+.change-password input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+.change-password button {
+  padding: 12px;
+  border-radius: 16px;
+  border: none;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.change-password button:hover {
+  background-color: #43a047;
+}
+
+/* LOG OUT BUTTON */
+.logout-btn {
+  padding: 12px;
+  border-radius: 16px;
+  border: none;
+  background-color: #f05454;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background-color: #d94343;
+}
+/* CUSTOM TOGGLE SWITCH */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* THE SLIDER */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;  /* off color */
+  border-radius: 28px;
+  transition: 0.4s;
+}
+
+/* THE CIRCLE INSIDE */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* WHEN CHECKED */
+input:checked + .slider {
+  background-color: #4caf50;  /* on color */
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
