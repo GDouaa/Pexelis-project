@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — Nexora</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="scale.js"></script>
+  <style>
+    /* Avatar positions — LOGIN (Figma x/1728, y/1117) */
+    .av1 { left: 6.6%;  top: 20.9%; }
+    .av2 { left: 28.1%; top: 21.6%; }
+    .av3 { left: 18.3%; top: 26.0%; }
+    .av4 { left: 18.3%; top: 49.6%; }
+    .av5 { left: 7.2%;  top: 58.3%; }
+    .av6 { left: 27.5%; top: 56.5%; }
+
+    .right-panel {
+      position: absolute;
+      right: 3.5%;
+      top: 0;
+      bottom: 14.33%;
+      width: 38.7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 5;
+    }
+
+    .form-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: calc(96px * var(--s));
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: calc(14px * var(--s));
+      line-height: 1.1;
+      position: relative;
+    }
+    .form-title .title-shadow {
+      position: absolute;
+      inset: 0;
+      color: var(--primary);
+      opacity: 0.2;
+      transform: translate(calc(3px * var(--s)), calc(3px * var(--s)));
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-card {
+      padding: calc(40px * var(--s)) calc(50px * var(--s));
+    }
+
+    .form-fields {
+      display: flex;
+      flex-direction: column;
+      gap: calc(24px * var(--s));
+      margin-bottom: calc(34px * var(--s));
+    }
+
+    .card-footer { display: flex; justify-content: center; }
+
+    .forgot-link {
+      display: block;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: calc(20px * var(--s));
+      color: var(--primary);
+      text-decoration: none;
+      margin-top: calc(14px * var(--s));
+      opacity: 0.75;
+    }
+    .forgot-link:hover { opacity: 1; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="page-frame"></div>
+  <div class="page">
+
+    <div class="avatar-group av1"><img src="images/Group 39.svg" alt="Avatar" /></div>
+    <div class="avatar-group av2"><img src="images/Group 34.svg" alt="Avatar" /></div>
+    <div class="avatar-group av3"><img src="images/Group 35.svg" alt="Avatar" /></div>
+    <div class="avatar-group av4"><img src="images/Group 37.svg" alt="Avatar" /></div>
+    <div class="avatar-group av5"><img src="images/Group 38.svg" alt="Avatar" /></div>
+    <div class="avatar-group av6"><img src="images/Group 36.svg" alt="Avatar" /></div>
+
+    <div class="right-panel">
+      <div class="form-title">
+        LOGIN
+        <span class="title-shadow">LOGIN</span>
+      </div>
+
+      <div class="form-card">
+        <div class="form-fields">
+          <div class="input-group">
+            <label class="input-label">EMAIL :</label>
+            <input class="input-field" type="email" placeholder="eg : username03@gmail.com" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">PASSWORD :</label>
+            <input class="input-field" type="password" placeholder="••••••••" />
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn-next" onclick="window.location.href='signup.html'">
+            <span>NEXT</span>
+          </button>
+        </div>
+      </div>
+
+      <a href="#" class="forgot-link">forgot password?</a>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-copyright">
+        <span class="footer-copy-icon">©</span>
+        <div class="footer-copy-text">
+          <span>COPYRIGHT</span>
+          <span>All Rights Reserved</span>
+        </div>
+      </div>
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="terms.html"   class="footer-link">Terms of Service</a>
+    </footer>
+
+  </div>
+</body>
+</html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Choose Your Avatar</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="avatar-section">
+            <h1 class="avatar-title">YOUR</h1>
+
+            <div class="avatars-wrapper">
+                <div class="row row-top">
+                    <div class="avatar" onclick="selectAvatar(1)">
+                        <img src="images/avatar-1.svg" alt="Avatar 1" class="avatar-img">
+                    </div>
+                    <div class="avatar selected" onclick="selectAvatar(2)">
+                        <img src="images/avatar-2.svg" alt="Avatar 2" class="avatar-img">
+                    </div>
+                    <div class="avatar" onclick="selectAvatar(3)">
+                        <img src="images/avatar-3.svg" alt="Avatar 3" class="avatar-img">
+                    </div>
+                </div>
+
+                <div class="middle-text">
+                    <span class="choose-text">CHOOSE</span>
+                    <span class="avatar-text">AVATAR</span>
+                </div>
+
+                <div class="row row-bottom">
+                    <div class="avatar" onclick="selectAvatar(4)">
+                        <img src="images/avatar-4.svg" alt="Avatar 4" class="avatar-img">
+                    </div>
+                    <div class="avatar" onclick="selectAvatar(5)">
+                        <img src="images/avatar-5.svg" alt="Avatar 5" class="avatar-img">
+                    </div>
+                    <div class="avatar" onclick="selectAvatar(6)">
+                        <img src="images/avatar-6.svg" alt="Avatar 6" class="avatar-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-section">
+            <h2 class="login-title">Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">EMAIL :</label>
+                    <input type="email" id="email" placeholder="eg : username@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">USERNAME :</label>
+                    <input type="text" id="username" placeholder="eg : username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">PASSWORD :</label>
+                    <input type="password" id="password" placeholder="* * * * * * * *" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">CONFIRM PASSWORD :</label>
+                    <input type="password" id="confirm-password" placeholder="* * * * * * * *" required>
+                </div>
+                <button type="submit" class="next-btn">NEXT</button>
+            </form>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <div class="copyright-icon">C</div>
+                <div>
+                    <div style="font-weight: 600;">COPYRIGHT</div>
+                    <div>All Rights Reserved</div>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of service</a>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/home.js"></script>
+</body>
+</html>
+
